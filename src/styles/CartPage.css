@@ -1,0 +1,7 @@
+.cart{
+  display: grid;
+  grid-template-columns: repeat(1, 30%);
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}

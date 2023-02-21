@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
 import { Chance } from "chance";
 
 import "../styles/ProductPage.css";
 
 import Item from "./Item";
+import { CartContext } from "./App";
 
 const ProductPage = () => {
+	//useContext hook to get selectedItem and setSelectedItem state
+	console.log(CartContext);
+	const { selectedItem, setSelectedItem } = useContext(CartContext);
+
 	// generate the ramdom data using chance library
 	const chance = new Chance(1234);
 	const productArray = [...Array(20)].map(() => ({
@@ -23,8 +29,6 @@ const ProductPage = () => {
 
 	// create product state to store products
 	const [products] = useState(productArray);
-	// create state for store selected products
-	const [selectedItem, setSelectedItem] = useState([]);
 
 	return (
 		<div className="container">
